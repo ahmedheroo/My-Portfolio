@@ -17,7 +17,7 @@ interface Project {
 export class ProjectsComponent {
   projects = signal<Project[]>([
     {
-      image: 'https://picsum.photos/seed/erp/600/400',
+      image: '/assets/dashboard-template.png',
       title: 'MarketPlace',
       description: 'A MarketPlace specialized for a certain district in upper Egypt, serving people and support then in buying and sellings with gurantee.',
       stack: ['.NET Core', 'Angular', 'SQL', 'Web API'],
@@ -25,7 +25,7 @@ export class ProjectsComponent {
       repoUrl: '#'
     },
     {
-      image: 'https://picsum.photos/seed/customapps/600/400',
+      image: '/assets/user-panel.avif',
       title: 'Custom Web & Desktop Apps',
       description: 'Designed and created bespoke web and desktop applications for various clients, tailoring solutions to their specific business needs from conception to deployment.',
       stack: ['ASP.net', 'C#', 'jQuery', 'Entity Framework'],
@@ -33,7 +33,7 @@ export class ProjectsComponent {
       repoUrl: '#'
     },
     {
-      image: 'assets/chatbot.jpg',
+      image: '/assets/chatbot.jpg',
       title: 'AI ChatBot',
       description: 'AI chatbot that can answer you with any question about the system its installed on giving fast answers and fast data retrieve with ability to export resports and give analysis for existing data. ',
       stack: ['.Net core', 'API', 'JavaScript', 'SQL', 'MCP'],
