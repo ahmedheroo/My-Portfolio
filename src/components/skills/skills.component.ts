@@ -60,7 +60,7 @@ export class SkillsComponent {
       skills: [
         { name: 'Git' },
         { name: 'TFS' },
-        { name: 'MCP servcer-client' },
+        { name: 'MCP server-client' },
         { name: 'Cloud Servers' },
         { name: 'Problem Solving' },
         { name: 'Troubleshooting' }

@@ -15,7 +15,7 @@ export class EducationComponent {
   educationHistory = signal<EducationItem[]>([
     {
       degree: 'Diploma, Intensive Code Camp',
-      institution: 'ITI, Al Minya',
+      institution: 'ITI, Minya',
       period: 'Apr 2021 – Sep 2021'
     },
     {

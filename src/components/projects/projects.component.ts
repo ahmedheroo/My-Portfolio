@@ -28,7 +28,7 @@ export class ProjectsComponent {
       image: 'assets/user-panel.avif',
       title: 'Custom Web & Desktop Apps',
       description: 'Designed and created bespoke web and desktop applications for various clients, tailoring solutions to their specific business needs from conception to deployment.',
-      stack: ['ASP.net', 'C#', 'jQuery', 'Entity Framework'],
+      stack: ['ASP.net','.net core', 'C#', 'SQL','jQuery',],
       liveUrl: '#',
       repoUrl: '#'
     },
