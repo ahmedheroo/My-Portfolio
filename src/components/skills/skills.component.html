@@ -1,0 +1,20 @@
+
+<section id="skills" class="py-20 md:py-28">
+  <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">Technical Skills</h2>
+  <div class="w-20 h-1 bg-cyan-400 mx-auto mb-12"></div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+    @for (category of skillCategories(); track category.title) {
+      <div class="bg-slate-800 rounded-lg p-6 shadow-lg hover:shadow-cyan-500/20 transition-shadow duration-300 transform hover:-translate-y-2">
+        <h3 class="text-xl font-bold text-cyan-400 mb-4">{{ category.title }}</h3>
+        <ul class="space-y-2">
+          @for (skill of category.skills; track skill.name) {
+            <li class="flex items-center">
+              <svg class="w-4 h-4 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <span>{{ skill.name }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</section>
