@@ -17,8 +17,8 @@ export class ContactComponent {
     {
       icon: '<i class="fa-solid fa-envelope"></i>',
       title: 'Email',
-      value: 'ahmedhassssan2016@gmail.com',
-      href: 'mailto:ahmedhassssan2016@gmail.com'
+      value: 'ahmedhsnhero2014@gmail.com',
+      href: 'mailto:ahmedhsnhero2014@gmail.com'
     },
     {
       icon: '<i class="fa-solid fa-mobile"></i>',

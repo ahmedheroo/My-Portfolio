@@ -20,10 +20,19 @@ export class SkillsComponent {
       title: 'Backend',
       skills: [
         { name: 'C#' },
-        { name: 'ASP.net' },
         { name: 'ASP.net MVC' },
         { name: '.Net Core' },
-        { name: 'Web API' },
+        { name: 'REST APIs / Web API' },
+        { name: 'Entity Framework & LINQ' },
+        { name: 'Clean Architecture & Layered Architecture' },
+        { name: 'Authentication & Authorization (JWT / Identity)' },
+        { name: 'External APIs & 3rd-Party Integrations' },
+        { name: 'Payment Gateways Integrations' },
+        { name: 'MCP Client–Server Architecture' },
+        { name: 'Object-Oriented Programming (OOP)' },
+        { name: 'Design Patterns (Repository, Unit of Work, Factory, etc.)' },
+        { name: 'SOLID Principles' },
+        { name: 'Application Security Best Practices' },
       ]
     },
     {
@@ -35,35 +44,40 @@ export class SkillsComponent {
         { name: 'TypeScript' },
         { name: 'jQuery' },
         { name: 'Ajax' },
+        { name: 'Responsive UI Design' },
+        { name: 'Modular & Reusable Component Design' },
       ]
     },
     {
-      title: 'Database',
+      title: 'Databases & Caching',
       skills: [
-        { name: 'SQL' },
-        { name: 'Entity Framework' },
+        { name: 'SQL Server' },
+        { name: 'Postgree Sql' },
+        { name: 'Stored Procedures, Functions, Views' },
+        { name: 'Indexing' },
+        { name: 'Query Optimization' },
         { name: 'Redis' },
       ]
     },
-     {
-      title: 'Conceptual Knowledge',
-      skills: [
-        { name: 'OOP' },
-        { name: 'Design Patterns' },
-        { name: 'SOLID Principles' },
-        { name: 'Agile' },
-        { name: 'Security Concerns' },
-      ]
-    },
     {
-      title: 'Tools & Skills',
+      title: 'DevOps & Version Control',
       skills: [
         { name: 'Git' },
+        { name: 'Git Workflows' },
+        { name: 'CI/CD Pipelines' },
         { name: 'TFS' },
-        { name: 'MCP server-client' },
-        { name: 'Cloud Servers' },
-        { name: 'Problem Solving' },
-        { name: 'Troubleshooting' }
+        { name: 'Azure' },
+        { name: 'Cloud Hosting & Deployment' },
+        { name: 'Documentation & Version Control' },
+      ]
+    }, 
+    {
+      title: 'Software Engineering Practices',
+      skills: [
+        { name: 'Agile & Scrum Methodologies' },
+        { name: 'Problem Solving & Debugging' },
+        { name: 'System Design Fundamentals' },
+        { name: 'Security & Compliance Considerations' },
       ]
     }
   ]);
