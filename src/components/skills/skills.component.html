@@ -1,20 +1,63 @@
+<section id="skills" class="relative py-24 md:py-32">
+  <div class="mx-auto max-w-6xl px-6 md:px-8">
+    <app-section-heading eyebrow="Capabilities" title="Technical Skills" />
 
-<section id="skills" class="py-20 md:py-28">
-  <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">Technical Skills</h2>
-  <div class="w-20 h-1 bg-cyan-400 mx-auto mb-12"></div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    @for (category of skillCategories(); track category.title) {
-      <div class="bg-slate-800 rounded-lg p-6 shadow-lg hover:shadow-cyan-500/20 transition-shadow duration-300 transform hover:-translate-y-2">
-        <h3 class="text-xl font-bold text-cyan-400 mb-4">{{ category.title }}</h3>
-        <ul class="space-y-2">
-          @for (skill of category.skills; track skill.name) {
-            <li class="flex items-center">
-              <svg class="w-4 h-4 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              <span>{{ skill.name }}</span>
-            </li>
-          }
-        </ul>
+    <!-- Core stack highlight -->
+    <div class="mb-12" appReveal [revealDelay]="80">
+      <p class="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500">Core stack</p>
+      <div class="flex flex-wrap gap-2.5">
+        @for (tech of coreStack; track tech) {
+          <span class="rounded-full border border-cyan-400/20 bg-gradient-to-r from-cyan-400/[0.08] to-indigo-400/[0.08] px-4 py-2 text-sm font-medium text-cyan-100">
+            {{ tech }}
+          </span>
+        }
       </div>
-    }
+    </div>
+
+    <!-- Category cards -->
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      @for (category of skillCategories(); track category.title) {
+        <article class="glass card-lift p-6" appReveal [revealDelay]="$index * 60">
+          <div class="mb-5 flex items-center gap-3">
+            <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/[0.08]">
+              @switch (category.icon) {
+                @case ('server') {
+                  <svg class="h-5 w-5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                  </svg>
+                }
+                @case ('layout') {
+                  <svg class="h-5 w-5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                  </svg>
+                }
+                @case ('database') {
+                  <svg class="h-5 w-5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                  </svg>
+                }
+                @case ('cloud') {
+                  <svg class="h-5 w-5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                  </svg>
+                }
+                @case ('workflow') {
+                  <svg class="h-5 w-5 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                  </svg>
+                }
+              }
+            </span>
+            <h3 class="font-display text-lg font-semibold text-white">{{ category.title }}</h3>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            @for (skill of category.skills; track skill.name) {
+              <span class="chip">{{ skill.name }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
   </div>
 </section>

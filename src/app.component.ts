@@ -8,6 +8,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { EducationComponent } from './components/education/education.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ExperienceComponent,
     EducationComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    ChatbotComponent
   ]
 })
 export class AppComponent {}

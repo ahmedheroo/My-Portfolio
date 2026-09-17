@@ -1,4 +1,6 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { SectionHeadingComponent } from '../../shared/section-heading.component';
+import { RevealDirective } from '../../shared/reveal.directive';
 
 interface Project {
   image: string;
@@ -7,38 +9,43 @@ interface Project {
   stack: string[];
   liveUrl: string;
   repoUrl: string;
+  featured: boolean;
 }
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [SectionHeadingComponent, RevealDirective]
 })
 export class ProjectsComponent {
   projects = signal<Project[]>([
     {
       image: 'assets/dashboard-template.png',
       title: 'MarketPlace',
-      description: 'A MarketPlace specialized for a certain district in upper Egypt, serving people and support then in buying and sellings with gurantee.',
+      description: 'A full marketplace platform built for a district in Upper Egypt — helping people buy and sell locally with trusted guarantees. Covers the whole flow: listings, transactions, and an admin back office.',
       stack: ['.NET Core', 'Angular', 'SQL', 'Web API'],
       liveUrl: '#',
-      repoUrl: '#'
+      repoUrl: '#',
+      featured: true
     },
     {
       image: 'assets/user-panel.avif',
       title: 'Custom Web & Desktop Apps',
-      description: 'Designed and created bespoke web and desktop applications for various clients, tailoring solutions to their specific business needs from conception to deployment.',
-      stack: ['ASP.net','.net core', 'C#', 'SQL','jQuery',],
+      description: 'Bespoke web and desktop applications for various clients — tailored to each business, taken from concept to deployment.',
+      stack: ['ASP.NET', '.NET Core', 'C#', 'SQL', 'jQuery'],
       liveUrl: '#',
-      repoUrl: '#'
+      repoUrl: '#',
+      featured: false
     },
     {
       image: 'assets/chatbot.jpg',
       title: 'AI ChatBot',
-      description: 'AI chatbot that can answer you with any question about the system its installed on giving fast answers and fast data retrieve with ability to export resports and give analysis for existing data. ',
-      stack: ['.Net core', 'API', 'JavaScript', 'SQL', 'MCP'],
+      description: 'An AI assistant that answers questions about the system it runs on — fast data retrieval, report export, and analysis of existing data.',
+      stack: ['.NET Core', 'API', 'JavaScript', 'SQL', 'MCP'],
       liveUrl: '#',
-      repoUrl: '#'
+      repoUrl: '#',
+      featured: false
     }
   ]);
 }

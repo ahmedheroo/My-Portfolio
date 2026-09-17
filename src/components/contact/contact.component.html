@@ -1,18 +1,88 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<section id="contact" class="relative py-24 md:py-32">
+  <div class="pointer-events-none absolute bottom-0 left-1/2 h-80 w-[44rem] max-w-full -translate-x-1/2 rounded-full bg-cyan-500/[0.06] blur-[130px]"></div>
 
-<section id="contact" class="py-20 md:py-28">
-  <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">Get In Touch</h2>
-  <div class="w-20 h-1 bg-cyan-400 mx-auto mb-12"></div>
-  <p class="max-w-2xl mx-auto text-center text-slate-400 mb-12">
-    I'm currently open to new opportunities and collaborations. Feel free to reach out!
-  </p>
-  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-    @for (method of contactMethods(); track method.title) {
-      <a [href]="method.href" class="group block bg-slate-800 p-8 rounded-lg text-center shadow-lg hover:bg-cyan-900/50 hover:shadow-cyan-500/20 transition-all duration-300 transform hover:-translate-y-2">
-        <div class="text-cyan-400 inline-block mb-4" [innerHTML]="method.icon">{{method.icon}}</div>
-        <h3 class="text-lg font-bold text-white mb-1">{{ method.title }}</h3>
-        <p class="text-slate-400 group-hover:text-cyan-300 transition-colors">{{ method.value }}</p>
+  <div class="relative mx-auto max-w-6xl px-6 md:px-8">
+    <app-section-heading eyebrow="Contact" title="Get In Touch" />
+
+    <p class="-mt-6 mb-12 max-w-2xl text-center text-slate-400 md:text-lg" appReveal>
+      I'm currently open to new opportunities and collaborations.<br class="hidden md:block">
+      Whether you have a role in mind or just want to talk shop — my inbox is always open.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      @for (method of contactMethods(); track method.title) {
+        <article class="glass card-lift group p-7" appReveal [revealDelay]="$index * 80">
+          <div class="flex items-start justify-between">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/[0.08] text-cyan-300">
+              @switch (method.icon) {
+                @case ('mail') {
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                }
+                @case ('phone') {
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                }
+                @case ('pin') {
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                }
+              }
+            </span>
+
+            @if (method.copyable) {
+              <button
+                type="button"
+                (click)="copyToClipboard(method)"
+                class="flex items-center gap-1.5 rounded-lg border border-white/10 px-2.5 py-1.5 font-mono text-[11px] text-slate-400 transition-all hover:border-cyan-400/40 hover:text-cyan-300"
+              >
+                @if (copiedKey() === method.title) {
+                  <svg class="h-3.5 w-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Copied
+                } @else {
+                  <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                  Copy
+                }
+              </button>
+            }
+          </div>
+
+          <h3 class="mt-5 font-display text-lg font-semibold text-white">{{ method.title }}</h3>
+
+          @if (method.href) {
+            <a [href]="method.href" class="mt-1 block break-all text-sm text-slate-400 transition-colors group-hover:text-cyan-300">
+              {{ method.value }}
+            </a>
+          } @else {
+            <p class="mt-1 text-sm text-slate-400">{{ method.value }}</p>
+          }
+        </article>
+      }
+    </div>
+
+    <!-- CTA banner -->
+    <div class="glass relative mt-12 overflow-hidden p-8 text-center md:p-10" appReveal>
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-500/[0.07] via-transparent to-indigo-500/[0.07]"></div>
+      <h3 class="relative font-display text-2xl font-bold text-white md:text-3xl">
+        Let's build something great together.
+      </h3>
+      <p class="relative mx-auto mt-3 max-w-xl text-sm text-slate-400 md:text-base">
+        From first commit to production deploy — I handle the whole stack.
+      </p>
+      <a href="mailto:ahmedhsnhero2014@gmail.com" class="btn-primary relative mt-7">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Say Hello
       </a>
-    }
+    </div>
   </div>
 </section>

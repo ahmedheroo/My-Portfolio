@@ -16,8 +16,11 @@
               "base": "./dist",
               "browser": "."
             },
-            "assets":[
-               "./assets"
+            "assets": [
+              "./assets"
+            ],
+            "styles": [
+              "./src/styles.css"
             ],
             "browser": "index.tsx",
             "tsConfig": "tsconfig.json"
@@ -50,7 +53,11 @@
           "defaultConfiguration": "development"
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "branch": "gh-pages",
+            "cname": "www.ahmed-hassan.site"
+          }
         }
       }
     }

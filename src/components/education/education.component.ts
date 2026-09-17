@@ -1,4 +1,6 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { SectionHeadingComponent } from '../../shared/section-heading.component';
+import { RevealDirective } from '../../shared/reveal.directive';
 
 interface EducationItem {
   degree: string;
@@ -9,12 +11,18 @@ interface EducationItem {
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [SectionHeadingComponent, RevealDirective]
 })
 export class EducationComponent {
   educationHistory = signal<EducationItem[]>([
     {
-      degree: 'Diploma, Intensive Code Camp',
+      degree: 'DevOps Engineer Diploma',
+      institution: 'DEPI, Cairo',
+      period: 'Jul 2026 – Dec 2026'
+    },
+    {
+      degree: '.Net Full Stack Diploma, Intensive Code Camp',
       institution: 'ITI, Minya',
       period: 'Apr 2021 – Sep 2021'
     },

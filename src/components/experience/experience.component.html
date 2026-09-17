@@ -1,23 +1,50 @@
+<section id="experience" class="relative py-24 md:py-32">
+  <div class="mx-auto max-w-4xl px-6 md:px-8">
+    <app-section-heading eyebrow="Career Path" title="Work Experience" />
 
-<section id="experience" class="py-20 md:py-28">
-  <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">Work Experience</h2>
-  <div class="w-20 h-1 bg-cyan-400 mx-auto mb-12"></div>
-  <div class="relative container mx-auto px-6 flex flex-col space-y-8">
-    <div class="absolute w-1 bg-slate-700 h-full left-1/2 -translate-x-1/2"></div>
-    @for (job of jobs(); track job.company; let i = $index) {
-      <div class="relative flex items-center" [class.justify-start]="i % 2 === 0" [class.justify-end]="i % 2 !== 0">
-        <div class="absolute w-4 h-4 rounded-full bg-cyan-400 left-1/2 -translate-x-1/2"></div>
-        <div class="w-full md:w-5/12 bg-slate-800 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
-          <p class="text-sm text-cyan-400 font-semibold mb-1">{{ job.period }}</p>
-          <h3 class="text-xl font-bold text-white">{{ job.role }}</h3>
-          <p class="text-slate-400 mb-3">{{ job.company }}</p>
-          <ul class="list-disc list-inside text-slate-400 space-y-1 text-sm">
-            @for (item of job.description; track item) {
-              <li>{{ item }}</li>
-            }
-          </ul>
-        </div>
-      </div>
-    }
+    <div class="relative">
+      <!-- vertical rail -->
+      <div class="absolute bottom-4 left-[27px] top-2 w-px bg-gradient-to-b from-cyan-400/60 via-white/10 to-transparent"></div>
+
+      <ol class="space-y-10">
+        @for (job of jobs(); track job.company; let i = $index) {
+          <li class="relative flex gap-6" appReveal [revealDelay]="i * 80">
+            <!-- marker -->
+            <div class="relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center">
+              <span class="absolute inset-0 rounded-full border border-cyan-400/25 bg-ink-900 shadow-[0_0_24px_-4px_rgba(34,211,238,0.4)]"></span>
+              <span class="relative font-mono text-xs font-semibold text-cyan-300">
+                {{ job.company.slice(0, 2) | uppercase }}
+              </span>
+            </div>
+
+            <!-- card -->
+            <div class="glass card-lift flex-1 p-6 md:p-7">
+              <div class="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
+                <div>
+                  <h3 class="font-display text-lg font-semibold text-white md:text-xl">
+                    {{ job.role }}
+                  </h3>
+                  <p class="mt-0.5 text-sm font-medium text-cyan-400/90">{{ job.company }}</p>
+                </div>
+                <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[11px] text-slate-400">
+                  {{ job.period }}
+                </span>
+              </div>
+
+              <ul class="mt-4 space-y-2">
+                @for (item of job.description; track item) {
+                  <li class="flex gap-2.5 text-sm leading-relaxed text-slate-400">
+                    <svg class="mt-1 h-3.5 w-3.5 flex-shrink-0 text-cyan-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span>{{ item }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          </li>
+        }
+      </ol>
+    </div>
   </div>
 </section>
